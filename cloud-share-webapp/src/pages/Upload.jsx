@@ -1,6 +1,11 @@
+import { act } from "react"
+import DashbardLayout from "../layout/DashbardLayout"
+
 const Upload = () => {
     return (
-        <div>Upload</div>
+        <DashbardLayout activeMenu={"Upload"}>
+            <div>Upload</div>
+        </DashbardLayout>
     )
 }
 

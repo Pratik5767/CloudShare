@@ -1,6 +1,10 @@
+import DashbardLayout from "../layout/DashbardLayout";
+
 const Subscription = () => {
     return (
-        <div>Subscription</div>
+        <DashbardLayout activeMenu={"Subscription"}>
+            <div>Subscription</div>
+        </DashbardLayout>
     )
 }
 

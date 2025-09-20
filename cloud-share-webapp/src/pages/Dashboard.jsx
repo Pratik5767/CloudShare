@@ -1,10 +1,12 @@
-import { UserButton } from "@clerk/clerk-react"
+import DashbardLayout from "../layout/DashbardLayout"
 
 const Dashboard = () => {
     return (
-        <div>
-            <UserButton/>
-        </div>
+        <DashbardLayout activeMenu="Dashboard">
+            <div>
+                Dashboard Content
+            </div>
+        </DashbardLayout>
     )
 }
 
