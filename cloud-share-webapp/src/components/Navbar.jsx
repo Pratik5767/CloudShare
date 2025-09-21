@@ -1,5 +1,5 @@
 import { SignedIn, UserButton } from "@clerk/clerk-react";
-import { Menu, Share2, Wallet, X } from "lucide-react";
+import { Menu, Share2, X } from "lucide-react";
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import SideMenuBar from "./SideMenuBar";

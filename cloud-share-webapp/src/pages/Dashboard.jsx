@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 const Dashboard = () => {
     const { getToken } = useAuth();
-
     useEffect(() => {
         const displayToken = async () => {
             const token = await getToken();
