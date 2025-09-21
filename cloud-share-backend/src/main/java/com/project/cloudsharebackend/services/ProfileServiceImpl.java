@@ -6,6 +6,8 @@ import com.project.cloudsharebackend.dto.ProfileDto;
 import com.project.cloudsharebackend.repositories.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -70,6 +72,15 @@ public class ProfileServiceImpl implements IProfileService {
         if (existingProfile != null) {
             profileRepository.delete(existingProfile);
         }
+    }
+
+    @Override
+    public ProfileDocument getCurrentProfile() {
+        if (SecurityContextHolder.getContext().getAuthentication() == null) {
+            throw new UsernameNotFoundException("User not authenticated");
+        }
+        String clerkId = SecurityContextHolder.getContext().getAuthentication().getName();
+        return profileRepository.findByClerkId(clerkId);
     }
 
     private ProfileDto convertToDto(ProfileDocument profile) {
