@@ -1,7 +1,7 @@
 import { Copy, Download, Eye, FileIcon, FileText, Globe, Image, Lock, Music, Trash, Video } from "lucide-react";
 import { useState } from "react"
 
-const FileCard = ({ file }) => {
+const FileCard = ({ file, onDelete, onTogglePublic, onDownload, onShareLink }) => {
     const [showActions, setShowActions] = useState(false);
 
     const getFileIcon = (file) => {
@@ -15,7 +15,7 @@ const FileCard = ({ file }) => {
             return <Video size={24} className="text-blue-500" />
         }
 
-        if (['mp4', 'wav', 'ogg', 'flac', 'm4a'].includes(extenstion)) {
+        if (['mp3', 'wav', 'ogg', 'flac', 'm4a'].includes(extenstion)) {
             return <Music size={24} className="text-green-500" />
         }
 
@@ -88,8 +88,12 @@ const FileCard = ({ file }) => {
                 <div className="flex gap-3 w-full justify-center">
                     {
                         file.isPublic && (
-                            <button title="Share Link" className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors text-purple-500 hover:text-purple-600">
-                                <Copy size={80} />
+                            <button
+                                onClick={() => onShareLink(file.id)}
+                                title="Share Link"
+                                className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors text-purple-500 hover:text-purple-600 cursor-pointer"
+                            >
+                                <Copy size={18} />
                             </button>
                         )
                     }
@@ -103,6 +107,7 @@ const FileCard = ({ file }) => {
                     }
 
                     <button
+                        onClick={() => onDownload(file)}
                         title="Download"
                         className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors text-green-600 hover:text-green-700 cursor-pointer"
                     >
@@ -110,6 +115,7 @@ const FileCard = ({ file }) => {
                     </button>
 
                     <button
+                        onClick={() => onTogglePublic(file)}
                         title={file.isPublic ? "Make Private" : "Make Public"}
                         className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors text-amber-600 hover:text-amber-700 cursor-pointer"
                     >
@@ -119,6 +125,7 @@ const FileCard = ({ file }) => {
                     </button>
 
                     <button
+                        onClick={() => onDelete(file.id)}
                         title="Delete"
                         className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors text-red-600 hover:text-red-700 cursor-pointer"
                     >

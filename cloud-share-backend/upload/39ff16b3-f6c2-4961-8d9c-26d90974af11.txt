@@ -1,0 +1,1 @@
+npx @angular/cli@<angular-version> new my-project
