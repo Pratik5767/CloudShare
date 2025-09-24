@@ -5,5 +5,6 @@ export const apiEndpoints = {
     TOGGLE_FILE: (id) => `${BASEURL}/files/${id}/toggle-public`,
     DOWNLOAD_FILE: (id) => `${BASEURL}/files/download/${id}`,
     DELETE_FILE: (id) => `${BASEURL}/files/${id}`,
-    GET_CREDITS: `${BASEURL}/users/credits`
+    GET_CREDITS: `${BASEURL}/users/credits`,
+    UPLOAD_FILES: `${BASEURL}/files/upload`
 }
