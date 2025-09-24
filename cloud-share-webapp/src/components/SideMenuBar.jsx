@@ -12,7 +12,7 @@ const SideMenuBar = ({ activeMenu }) => {
             <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7">
                 {
                     user?.imageUrl ? (
-                        <img src={user.imageUrl || ""} alt="Profile img" className="w-20 h-20 bg-slate-400 rounded-full" />
+                        <img src={user?.imageUrl || ""} alt="Profile img" className="w-20 h-20 bg-slate-400 rounded-full" />
                     ) : (
                         <User className="w-20 h-20 text-xl border p-2 rounded-full" />
                     )
