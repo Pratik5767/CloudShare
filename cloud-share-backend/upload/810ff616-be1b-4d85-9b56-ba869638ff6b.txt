@@ -1,0 +1,19 @@
+9. Write a program to calculate the average of N numbers input by the user using a for loop.
+
+10. Create a program to print the first N prime numbers using a for loop and a method to check for prime numbers.
+
+11. Write a program to find the factorial of a number using recursion.
+
+12. Create a program to check whether a given string is a palindrome or not using a for loop.
+
+13. Write a program to find the sum of the digits of a number using a while loop.
+
+14. Create a program to find the factorial of a number using a while loop.
+
+15. Write a program to generate the Fibonacci series up to N terms using a for loop.
+
+16. Create a program to find the sum of all even numbers from 1 to N using a for loop.
+
+17. Write a program to check whether a given number is an Armstrong number or not using a for loop.
+
+18. Create a program to find the LCM  (Least Common Multiple) of two numbers using a for loop and the GCD.

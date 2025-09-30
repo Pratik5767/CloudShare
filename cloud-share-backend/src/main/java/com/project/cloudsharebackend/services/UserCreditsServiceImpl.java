@@ -5,6 +5,8 @@ import com.project.cloudsharebackend.repositories.UserCreditsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserCreditsServiceImpl implements IUserCreditsService {
@@ -47,6 +49,15 @@ public class UserCreditsServiceImpl implements IUserCreditsService {
             return null;
         }
         userCredits.setCredits(userCredits.getCredits() - 1);
+        return userCreditsRepository.save(userCredits);
+    }
+
+    @Override
+    public UserCredits addCredits(String clerkId, Integer creditsToAdd, String plan) {
+        UserCredits userCredits = userCreditsRepository.findByClerkId(clerkId).orElseGet(() ->
+                createInitialCredits(clerkId));
+        userCredits.setCredits(userCredits.getCredits() + creditsToAdd);
+        userCredits.setPlan(plan);
         return userCreditsRepository.save(userCredits);
     }
 }

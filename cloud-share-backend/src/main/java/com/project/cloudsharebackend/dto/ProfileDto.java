@@ -12,6 +12,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @Builder
 public class ProfileDto {
+
     private String id;
     private String clerkId;
     private String email;
