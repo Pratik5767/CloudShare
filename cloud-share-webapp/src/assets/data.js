@@ -111,6 +111,34 @@ export const testimonials = [
     }
 ];
 
+export const plans = [
+    {
+        id: "premium",
+        name: "Premium",
+        credits: 500,
+        price: 500,
+        features: [
+            "Upload up to 500 files",
+            "Access to all basic features",
+            "Priority support"
+        ],
+        recommended: false
+    },
+    {
+        id: "ultimate",
+        name: "Ultimate",
+        credits: 5000,
+        price: 2500,
+        features: [
+            "Upload up to 5000 files",
+            "Access to all premium features",
+            "Priority support",
+            "Advanced analytic"
+        ],
+        recommended: true
+    },
+]
+
 // side menu bar options
 export const SIDE_MENU_DATA = [
     {

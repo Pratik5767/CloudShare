@@ -9,5 +9,6 @@ export const apiEndpoints = {
     UPLOAD_FILES: `${BASEURL}/files/upload`,
     CREATE_ORDER: `${BASEURL}/payments/create-order`,
     VERIFY_PAYMENT: `${BASEURL}/payments/verify-payment`,
-    GET_TRANSACTIONS: `${BASEURL}/transactions/get`
+    GET_TRANSACTIONS: `${BASEURL}/transactions/get`,
+    PUBLIC_FILE_VIEW: (fileId) => `${BASEURL}/files/public/${fileId}`
 }

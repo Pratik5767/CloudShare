@@ -6,7 +6,7 @@ const DashbardLayout = ({ children, activeMenu }) => {
     const { user } = useUser();
 
     return (
-        <div className="bg-purple-100">
+        <div className="bg-gray-50">
             {/* Navbar */}
             <Navbar activeMenu={activeMenu} />
 

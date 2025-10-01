@@ -5,6 +5,7 @@ import { UserCreditsContext } from "../context/UserCreditsContext";
 import { apiEndpoints } from "../utils/ApiEndpoints";
 import axios from "axios";
 import { AlertCircle, Check, CreditCard, Loader2 } from "lucide-react";
+import { plans } from "../assets/data";
 
 const Subscription = () => {
     const [processingPayment, setProcessingPayment] = useState(false);
@@ -16,34 +17,6 @@ const Subscription = () => {
     const razorpayScriptRef = useRef(null);
     const { credits, setCredits, fetchUserCredits } = useContext(UserCreditsContext);
     const { user } = useUser();
-
-    const plans = [
-        {
-            id: "premium",
-            name: "Premium",
-            credits: 500,
-            price: 500,
-            features: [
-                "Upload up to 500 files",
-                "Access to all basic features",
-                "Priority support"
-            ],
-            recommended: false
-        },
-        {
-            id: "ultimate",
-            name: "Ultimate",
-            credits: 5000,
-            price: 2500,
-            features: [
-                "Upload up to 5000 files",
-                "Access to all premium features",
-                "Priority support",
-                "Advanced analytic"
-            ],
-            recommended: true
-        },
-    ]
 
     useEffect(() => {
         if (!window.Razorpay) {

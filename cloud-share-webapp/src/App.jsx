@@ -6,6 +6,7 @@ import MyFiles from "./pages/MyFiles.jsx"
 import Subscription from "./pages/Subscription.jsx"
 import Transactions from "./pages/Transactions.jsx"
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react"
+import PublicFileView from "./pages/PublicFileView.jsx"
 
 const App = () => {
     return (
@@ -62,6 +63,12 @@ const App = () => {
                     </SignedOut>
                 </>
             } />
+            <Route path="/file/:fileId" element={
+                <>
+                    <PublicFileView />
+                </>
+            }
+            />
             <Route path="/*" element={<RedirectToSignIn />} />
         </Routes>
     )
