@@ -30,11 +30,7 @@ const UploadBox = ({ files, onFileChange, onUpload, uploading, onRemoveFile, rem
     return (
         <div className="w-full max-w-3xl mx-auto">
             <div className="flex justify-between mb-3">
-                <span
-                    className={`font-semibold text-lg flex items-center gap-1 cursor-pointer`}
-                    onClick={handleBoxClick}
-                    style={uploading ? { pointerEvents: "none", opacity: 0.5 } : {}}
-                >
+                <span className={`font-semibold text-lg flex items-center gap-1 cursor-pointer ${uploading ? 'pointer-events-none opacity-[0.5]' : ''}`} onClick={handleBoxClick}>
                     <ArrowUpFromLine className="text-blue-500" size={20} /> Upload Files
                 </span>
 
@@ -81,7 +77,7 @@ const UploadBox = ({ files, onFileChange, onUpload, uploading, onRemoveFile, rem
                                 files.map((file, idx) => (
                                     <li key={idx} className="flex items-center justify-between bg-white border-b-2 border-gray-400 px-3 py-2 shadow-sm hover:shadow-md transition-shadow">
                                         <div className="flex items-center gap-2">
-                                            <File  size={24} className="text-blue-500" />
+                                            <File size={24} className="text-blue-500" />
 
                                             <div className="flex flex-col gap-1">
                                                 <span className="text-gray-800 text-sm font-medium truncate">
@@ -116,10 +112,7 @@ const UploadBox = ({ files, onFileChange, onUpload, uploading, onRemoveFile, rem
                         <button
                             onClick={onUpload}
                             disabled={isUploadDisabled || uploading}
-                            className={`mt-4 w-full py-3 rounded-md font-medium text-white text-center cursor-pointer ${isUploadDisabled || uploading
-                                ? "bg-blue-300 cursor-not-allowed"
-                                : "bg-blue-600 hover:bg-blue-700"
-                                }`}
+                            className={`mt-4 w-full py-3 rounded-md font-medium text-white text-center cursor-pointer ${isUploadDisabled || uploading ? "bg-blue-300 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}
                         >
                             {uploading ? "Uploading..." : "Upload"}
                         </button>

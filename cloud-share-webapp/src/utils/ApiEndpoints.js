@@ -6,5 +6,8 @@ export const apiEndpoints = {
     DOWNLOAD_FILE: (id) => `${BASEURL}/files/download/${id}`,
     DELETE_FILE: (id) => `${BASEURL}/files/${id}`,
     GET_CREDITS: `${BASEURL}/users/credits`,
-    UPLOAD_FILES: `${BASEURL}/files/upload`
+    UPLOAD_FILES: `${BASEURL}/files/upload`,
+    CREATE_ORDER: `${BASEURL}/payments/create-order`,
+    VERIFY_PAYMENT: `${BASEURL}/payments/verify-payment`,
+    GET_TRANSACTIONS: `${BASEURL}/transactions/get`
 }

@@ -40,7 +40,7 @@ const Navbar = ({ activeMenu }) => {
             {/* Right Side - credits and user button */}
             <SignedIn>
                 <div className="flex items-center gap-4">
-                    <Link to="/subscriptions">
+                    <Link to="/subscription">
                         <CreditsDisplay credits={credits} />
                     </Link>
 

@@ -42,7 +42,7 @@ const App = () => {
                     </SignedOut>
                 </>
             } />
-            <Route path="/subscriptions" element={
+            <Route path="/subscription" element={
                 <>
                     <SignedIn>
                         <Subscription />
