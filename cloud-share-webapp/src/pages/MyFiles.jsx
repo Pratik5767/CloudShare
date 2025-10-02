@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import DashbardLayout from "../layout/DashbardLayout"
-import { Copy, Download, Eye, File, FileIcon, FileText, Globe, Grid, Image, List, Lock, Music, Trash2, Video } from "lucide-react";
+import { Copy, Download, Eye, File, Globe, Grid, List, Lock, Trash2 } from "lucide-react";
 import { useAuth } from "@clerk/clerk-react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import FileCard from "../components/FileCard";
 import { apiEndpoints } from "../utils/ApiEndpoints";
 import ConfirmationDialog from "../components/ConfirmationDialog";
 import LinkShareModel from "../components/LinkShareModel";
+import GetFileIcon from "../components/GetFileIcon";
 
 const MyFiles = () => {
     const [files, setFiles] = useState([]);
@@ -84,28 +85,6 @@ const MyFiles = () => {
             console.error('Download failed', error);
             toast.error('Error downloading the file', error.message);
         }
-    }
-
-    const getFileIcon = (file) => {
-        const extenstion = file.name.split('.').pop().toLowerCase();
-
-        if (['jpeg', 'jpg', 'png', 'gif', 'svg', 'webp'].includes(extenstion)) {
-            return <Image size={24} className="text-purple-500" />
-        }
-
-        if (['mp4', 'webm', 'mov', 'avi', 'mkv'].includes(extenstion)) {
-            return <Video size={24} className="text-blue-500" />
-        }
-
-        if (['mp3', 'wav', 'ogg', 'flac', 'm4a'].includes(extenstion)) {
-            return <Music size={24} className="text-green-500" />
-        }
-
-        if (['pdf', 'doc', 'docx', 'txt', 'rtf'].includes(extenstion)) {
-            return <FileText size={24} className="text-amber-500" />
-        }
-
-        return <FileIcon size={24} className="text-purple-500" />
     }
 
     // closes the confirm dialog
@@ -250,7 +229,9 @@ const MyFiles = () => {
                                             <tr key={file.id} className="hover:bg-gray-50 transition-colors">
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                                     <div className="flex items-center gap-2">
-                                                        {getFileIcon(file)}
+                                                        {
+                                                            <GetFileIcon file={file} />
+                                                        }
 
                                                         {file.name}
                                                     </div>
